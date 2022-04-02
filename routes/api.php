@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/api/characters', [\App\Http\Controllers\Wrapper::class, 'characters'])->name('characters');
-Route::get('/api/weapons', [\App\Http\Controllers\Wrapper::class, 'weapons'])->name('weapons');
-Route::get('/api/artifacts', [\App\Http\Controllers\Wrapper::class, 'artifacts'])->name('artifacts');
+Route::get('/api/characters', [\App\Http\Controllers\Wrapper::class, 'characters'])->name('characters')->name('weapons') -> middleware('npm');
+Route::get('/api/weapons', [\App\Http\Controllers\Wrapper::class, 'weapons'])->name('weapons') -> middleware('npm');
+Route::get('/api/artifacts', [\App\Http\Controllers\Wrapper::class, 'artifacts'])->name('artifacts') ->name('weapons') -> middleware('npm');
 Route::get('/user/identitas', function (){
     return [
         'code' => '0',
